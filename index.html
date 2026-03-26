@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline Mermaid Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Offline Mermaid Builder</h1>
+      <div class="topbar-actions">
+        <button id="renderBtn">Render</button>
+        <button id="downloadSvgBtn">Download SVG</button>
+        <button id="resetBtn">Reset Builder</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Diagram Type</h2>
+          <select id="diagramType">
+            <option value="flowchart">Flowchart (builder sync)</option>
+            <option value="sequence">Sequence</option>
+            <option value="class">Class</option>
+            <option value="state">State</option>
+            <option value="er">Entity Relationship</option>
+          </select>
+        </section>
+
+        <section class="panel">
+          <h2>Sample Diagrams</h2>
+          <div id="sampleButtons" class="chips"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Mermaid Code</h2>
+          <textarea id="codeInput" spellcheck="false"></textarea>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <div class="panel toolbar">
+          <h2>Visual Builder (Flowchart)</h2>
+          <div class="toolbar-actions">
+            <button id="addNodeBtn">+ Add Block</button>
+            <button id="connectModeBtn" data-mode="off">Connect: Off</button>
+          </div>
+        </div>
+        <div id="builderCanvas" class="builder-canvas">
+          <svg id="edgeLayer"></svg>
+        </div>
+
+        <section class="panel preview-panel">
+          <h2>Preview</h2>
+          <div id="preview" class="preview"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="vendor/mermaid.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
